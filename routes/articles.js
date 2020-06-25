@@ -1,8 +1,8 @@
-const routes = require('express').Router();
-const { getAllArticles, postArticle, deleteArticle} = require('../controllers/articles');
+const articleRoutes = require('express').Router();
+const { getAllArticles, postArticle, deleteArticle } = require('../controllers/articles');
 
-routes.get('/', getAllArticles);
-routes.post('/', postArticle);
-routes.delete('/:articleId', deleteArticle);
+articleRoutes.get('/', getAllArticles);
+articleRoutes.post('/', postArticle);
+articleRoutes.delete('/:articleId', deleteArticle);
 
-module.exports = routes;
+module.exports = articleRoutes;
