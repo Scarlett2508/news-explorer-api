@@ -10,7 +10,6 @@ const articleSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-    minlength: 2,
   },
   text: {
     type: String,
@@ -19,8 +18,6 @@ const articleSchema = new mongoose.Schema({
   date: {
     type: String,
     required: true,
-    minlength: 2,
-    maxlength: 30,
   },
   source: {
     type: String,
@@ -49,7 +46,8 @@ const articleSchema = new mongoose.Schema({
     },
   },
   owner: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
     required: true,
     select: false,
   },
