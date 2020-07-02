@@ -5,6 +5,7 @@ const { PrivateKey } = require('../config');
 const NotFoundError = require('../errors/not-found-err');
 const BadRequestError = require('../errors/bad-request-err');
 const UnauthorizedError = require('../errors/unauthorized-err');
+const ConflictError = require('../errors/conflict-err');
 
 module.exports.getUser = (req, res, next) => {
   User.findById(req.params.id)
@@ -22,6 +23,12 @@ module.exports.createUser = (req, res, next) => {
   const {
     name, email, password,
   } = req.body;
+  User.findOne({ email })
+    .then((userExist) => {
+      if (userExist) {
+        throw new ConflictError('This email is already being used');
+      }
+    });
   bcrypt.hash(password, 10)
     .then((hash) => User.create({
       name, email, password: hash,
