@@ -7,10 +7,6 @@ const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
 const routes = require('./routes/index');
 
-// const auth = require('./middlewares/auth');
-
-// const { routeForSignUp, routeForSignIn } = require('./routes/auth');
-
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { ThrowError } = require('./middlewares/throwError');
 
@@ -35,16 +31,11 @@ app.all('*', (req, res) => {
   res.status(404).send({ message: 'Запрашиваемый ресурс не найден' });
 });
 
-// app.use('/', routeForSignUp);
-// app.use('/', routeForSignIn);
-// app.use(auth);
-
 app.use(errors());
 app.use(ThrowError);
 
 app.listen(PORT);
 
-// eslint-disable-next-line no-unused-vars
 process.on('uncaughtException', (e) => {
   process.exit(1);
 });
