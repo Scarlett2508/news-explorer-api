@@ -8,7 +8,7 @@ const UnauthorizedError = require('../errors/unauthorized-err');
 const ConflictError = require('../errors/conflict-err');
 
 module.exports.getUser = (req, res, next) => {
-  User.findById(req.params.id)
+  User.findById(req.user._id)
     .orFail(new NotFoundError('This user doesn not exist!'))
     .then((user) => {
       if (!user) {

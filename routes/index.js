@@ -4,10 +4,13 @@ const userRoutes = require('./users');
 const articleRoutes = require('./articles');
 const authRoutes = require('./auth');
 
-// const auth = require('../middlewares/auth');
+const auth = require('../middlewares/auth');
 
 routes.use(authRoutes);
-routes.use(userRoutes);
-routes.use(articleRoutes);
+
+routes.use(auth);
+
+routes.use('/users', userRoutes);
+routes.use('/articles', articleRoutes);
 
 module.exports = routes;
