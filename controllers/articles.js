@@ -17,9 +17,7 @@ module.exports.postArticle = (req, res, next) => {
   Article.create({
     keyword, title, text, date, source, link, image, owner,
   })
-    .then((article) => {
-      res.status(200).send({ data: article });
-    })
+    .then((article) => res.send({ data: article }))
     .catch(next);
 };
 

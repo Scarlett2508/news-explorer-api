@@ -20,7 +20,7 @@ const articleSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  source: {
+  link: {
     type: String,
     required: true,
     validate: {
@@ -30,11 +30,9 @@ const articleSchema = new mongoose.Schema({
       message: 'Неверный формат URL',
     },
   },
-  link: {
+  source: {
     type: String,
     required: true,
-    minlength: 2,
-    maxlength: 30,
   },
   image: {
     type: String,

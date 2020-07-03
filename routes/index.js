@@ -10,7 +10,7 @@ routes.use(authRoutes);
 
 routes.use(auth);
 
-routes.use('/users', userRoutes);
-routes.use('/articles', articleRoutes);
+routes.use(userRoutes);
+routes.use(articleRoutes);
 
 module.exports = routes;
