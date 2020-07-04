@@ -6,14 +6,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
 const routes = require('./routes/index');
+const { PORT, DB_URL } = require('./config');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { ThrowError } = require('./middlewares/throwError');
 
-const { PORT = 3000 } = process.env;
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/newsforsave', {
+mongoose.connect(DB_URL, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
