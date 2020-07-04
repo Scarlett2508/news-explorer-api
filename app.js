@@ -27,10 +27,6 @@ app.use(requestLogger);
 app.use(routes);
 app.use(errorLogger);
 
-app.all('*', (req, res) => {
-  res.status(404).send({ message: 'Запрашиваемый ресурс не найден' });
-});
-
 app.use(errors());
 app.use(ThrowError);
 
