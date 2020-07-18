@@ -1,0 +1,8 @@
+{
+  "extends": ["airbnb", "airbnb/hooks"],
+    "rules":{
+      "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+      "no-unused-vars": "off",
+      "func-names": "off"
+    }
+  }

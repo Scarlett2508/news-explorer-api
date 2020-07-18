@@ -1,0 +1,41 @@
+{
+  "name": "diploma",
+  "version": "0.0.1",
+  "description": "diploma work for Yandex.Praktikum",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": " npx nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Scarlett2508/news-explorer-api.git"
+  },
+  "author": "Alevtina Fedina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Scarlett2508/news-explorer-api/issues"
+  },
+  "homepage": "https://github.com/Scarlett2508/news-explorer-api#readme",
+  "devDependencies": {
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "nodemon": "^2.0.3"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "celebrate": "^12.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-winston": "^4.0.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.9.20",
+    "validator": "^13.1.1",
+    "winston": "^3.3.3"
+  }
+}
