@@ -14,10 +14,8 @@ const { ThrowError } = require('./middlewares/throwError');
 
 const app = express();
 
-const corsOptions = {
-    origin: ['http://localhost:8080'],
-    credentials: true,
-};
+app.use(cors());
+
 
 
 app.use(cors(corsOptions));
