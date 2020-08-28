@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 const express = require('express');
+const cors = require('cors');
 
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
@@ -13,11 +14,19 @@ const { ThrowError } = require('./middlewares/throwError');
 
 const app = express();
 
+const corsOptions = {
+    origin: ['http://localhost:8080'],
+    credentials: true,
+};
+
+
+app.use(cors(corsOptions));
+
 mongoose.connect(DB_URL, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,5 +42,5 @@ app.use(ThrowError);
 app.listen(PORT);
 
 process.on('uncaughtException', (e) => {
-  process.exit(1);
+    process.exit(1);
 });
