@@ -15,11 +15,21 @@ const { ThrowError } = require('./middlewares/throwError');
 
 const app = express();
 
-app.use(cors());
 
+const corsOptions = {
+    origin: [
+      'http://localhost:3000',
+      'http://localhost:8080',
+      'https://newsforsave.tk',
+      'https://scarlett2508.github.io/news-explorer-frontend'
+    ],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+    credentials: true, 
+  };
+  app.use(cors(corsOptions));
 
-
-// app.use(cors(corsOptions));
 
 mongoose.connect(DB_URL, {
     useNewUrlParser: true,
@@ -28,20 +38,20 @@ mongoose.connect(DB_URL, {
     useUnifiedTopology: true,
 });
 
-async function start() {
-    try {
-        await mongoose.connect(config.get('DB_URL'), {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useFindAndModify: false,
-            useCreateIndex: true
-        });
-        app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`));
-    } catch (e) {
-        console.log('Server Error', e.message);
-        process.exit(1);
-    }
-}
+// async function start() {
+//     try {
+//         await mongoose.connect(config.get('DB_URL'), {
+//             useNewUrlParser: true,
+//             useUnifiedTopology: true,
+//             useFindAndModify: false,
+//             useCreateIndex: true
+//         });
+//         app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`));
+//     } catch (e) {
+//         console.log('Server Error', e.message);
+//         process.exit(1);
+//     }
+// }
 
 // start();
 
