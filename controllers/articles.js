@@ -4,8 +4,9 @@ const ForbiddenError = require('../errors/forbidden-err');
 
 module.exports.getAllArticles = (req, res, next) => {
   Article.find({ owner: req.user._id })
-    .orFail(() => new NotFoundError('There is no such article'))
-    .then((articles) => res.send({ data: articles }))
+    // .orFail(() => new NotFoundError('There is no such article'))
+    // .orFail(() => res.send({ data: [] }))
+    .then((articles = []) => res.send({ data: articles }))
     .catch(next);
 };
 
@@ -18,7 +19,7 @@ module.exports.postArticle = (req, res, next) => {
     keyword, title, text, date, source, link, image, owner,
   })
     .then((article) => res.send({ data: article }))
-    .catch(next);
+    .catch(next)
 };
 
 module.exports.deleteArticle = (req, res, next) => {
