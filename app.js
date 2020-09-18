@@ -19,7 +19,9 @@ const app = express();
 const corsOptions = {
     origin: [
       'http://localhost:3000',
+      'https://localhost:3000',
       'http://localhost:8080',
+      'https://localhost:8080',
       'https://newsforsave.tk',
       'https://scarlett2508.github.io/news-explorer-frontend'
     ],
