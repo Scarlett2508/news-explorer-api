@@ -23,7 +23,7 @@ const app = express();
 //       'localhost:8080',
 //       'https://localhost:8080',
 //       'https://newsforsave.tk',
-//       'https://scarlett2508.github.io/news-explorer-frontend',
+//       'scarlett2508.github.io/news-explorer-frontend',
 //       'http://localhost:8080/index.html',
 //     ],
 //     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
@@ -33,7 +33,17 @@ const app = express();
 //   };
 //   app.use(cors(corsOptions));
 
-app.use(cors());
+const corsOptions = {
+  origin:['https://newsforsave.tk','http://localhost:8080', 'https://scarlett2508.github.io'],
+  methods:['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders:['Content-Type', 'x-requested-with', 'origin', 'accept', 'x-access-token', 'Authorization'],
+  credentials: true
+}
+app.use('*', cors(corsOptions));
+
+// app.use(cors());
 
 mongoose.connect(DB_URL, {
     useNewUrlParser: true,
