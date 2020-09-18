@@ -16,24 +16,24 @@ const { ThrowError } = require('./middlewares/throwError');
 const app = express();
 
 
-const corsOptions = {
-    origin: [
-      'localhost:3000',
-      'https://localhost:3000',
-      'localhost:8080',
-      'https://localhost:8080',
-      'https://newsforsave.tk',
-      'https://scarlett2508.github.io/news-explorer-frontend',
-      'http://localhost:8080/index.html',
-    ],
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-    credentials: true, 
-  };
-  app.use(cors(corsOptions));
+// const corsOptions = {
+//     origin: [
+//       'localhost:3000',
+//       'https://localhost:3000',
+//       'localhost:8080',
+//       'https://localhost:8080',
+//       'https://newsforsave.tk',
+//       'https://scarlett2508.github.io/news-explorer-frontend',
+//       'http://localhost:8080/index.html',
+//     ],
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     preflightContinue: false,
+//     optionsSuccessStatus: 204,
+//     credentials: true, 
+//   };
+//   app.use(cors(corsOptions));
 
-//app.use(cors());
+app.use(cors());
 
 mongoose.connect(DB_URL, {
     useNewUrlParser: true,
