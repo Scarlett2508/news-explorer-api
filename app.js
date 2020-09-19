@@ -34,7 +34,12 @@ const app = express();
 //   app.use(cors(corsOptions));
 
 const corsOptions = {
-  origin:['https://newsforsave.tk','http://localhost:8080', 'https://scarlett2508.github.io'],
+  origin:['https://newsforsave.tk',
+  'http://newsforsave.tk',
+  'http://localhost:8080',
+  'https://localhost:3000',
+  'https://nomoreparties.co',
+  'https://scarlett2508.github.io'],
   methods:['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
   optionsSuccessStatus: 204,
