@@ -43,7 +43,13 @@ const corsOptions = {
   methods:['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
   optionsSuccessStatus: 204,
-  allowedHeaders:['Content-Type', 'x-requested-with', 'origin', 'accept', 'x-access-token', 'Authorization'],
+  allowedHeaders:['Content-Type',
+  'access-control-allow-origin',
+   'x-requested-with',
+    'origin',
+    'accept',
+    'x-access-token',
+    'Authorization'],
   credentials: true
 }
 app.use('*', cors(corsOptions));
