@@ -34,18 +34,17 @@ const app = express();
 //   app.use(cors(corsOptions));
 
 const corsOptions = {
-  origin: false,
-  // origin:['https://newsforsave.tk',
-  // 'http://newsforsave.tk',
-  // 'http://localhost:8080',
-  // 'https://localhost:3000',
-  // 'https://nomoreparties.co',
-  // 'https://scarlett2508.github.io'],
+  origin:['https://newsforsave.tk',
+  'http://newsforsave.tk',
+  'http://localhost:8080',
+  'https://localhost:3000',
+  'https://nomoreparties.co',
+  'https://scarlett2508.github.io'],
   methods:['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
   optionsSuccessStatus: 204,
   allowedHeaders:['Content-Type',
-  'access-control-allow-origin',
+  'Access-Control-Allow-Origin',
    'x-requested-with',
     'origin',
     'accept',
@@ -53,7 +52,7 @@ const corsOptions = {
     'Authorization'],
   // credentials: true
 }
-app.use('*', cors());
+app.use('*', cors(corsOptions));
 
 // app.use(cors());
 
