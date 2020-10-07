@@ -3,7 +3,6 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
-const config = require('./config')
 
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
@@ -14,7 +13,6 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { ThrowError } = require('./middlewares/throwError');
 
 const app = express();
-
 
 // const corsOptions = {
 //     origin: [
@@ -29,7 +27,7 @@ const app = express();
 //     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 //     preflightContinue: false,
 //     optionsSuccessStatus: 204,
-//     credentials: true, 
+//     credentials: true,
 //   };
 //   app.use(cors(corsOptions));
 
@@ -41,18 +39,18 @@ const corsOptions = {
   // 'https://localhost:3000',
   // 'https://nomoreparties.co',
   // 'https://scarlett2508.github.io'],
-  methods:['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
   optionsSuccessStatus: 204,
-  allowedHeaders:['Content-Type',
-  'Access-Control-Allow-Origin',
-   'x-requested-with',
+  allowedHeaders: ['Content-Type',
+    'Access-Control-Allow-Origin',
+    'x-requested-with',
     'origin',
     'accept',
     'x-access-token',
     'Authorization'],
   // credentials: true
-}
+};
 app.use('*', cors(corsOptions));
 
 // app.use(function(req, res, next) {
@@ -64,17 +62,15 @@ app.use('*', cors(corsOptions));
 // app.use(cors());
 
 mongoose.connect(DB_URL, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
 });
-
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(requestLogger);
-
 app.use(routes);
 app.use(errorLogger);
 
@@ -84,5 +80,6 @@ app.use(ThrowError);
 app.listen(PORT);
 
 process.on('uncaughtException', (e) => {
-    process.exit(1);
+console.log(e);
+  process.exit(1);
 });

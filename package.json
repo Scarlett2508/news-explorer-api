@@ -19,9 +19,12 @@
   "homepage": "https://github.com/Scarlett2508/news-explorer-api#readme",
   "devDependencies": {
     "eslint": "^7.3.1",
-    "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.21.3",
+    "eslint-plugin-react-hooks": "^4.1.2",
     "nodemon": "^2.0.3"
   },
   "dependencies": {
